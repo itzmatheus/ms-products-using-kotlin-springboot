@@ -27,6 +27,12 @@ class ProductControllerTest {
     @Autowired
     lateinit var productRepository: ProductRepository
 
+    @BeforeEach
+    fun clearDb() {
+        productRepository.deleteAll()
+        categoryRepository.deleteAll()
+    }
+
     @Test
     @Order(1)
     fun shouldAddProducts() {
