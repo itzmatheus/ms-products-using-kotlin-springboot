@@ -8,6 +8,11 @@ import org.junit.jupiter.api.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
+import org.springframework.boot.test.web.client.exchange
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpMethod
+import org.springframework.http.MediaType
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
@@ -59,4 +64,24 @@ class ProductControllerTest {
 
     }
 
+    @Test
+    @Order(3)
+    fun shouldListAllProducts() {
+        var category = Category(name = "ELETRONIC")
+        category = categoryRepository.save(category)
+        var product = Product(name = "iPhone 13", price = 2500, category = category)
+        product = productRepository.save(product)
+
+        val headers = HttpHeaders()
+        headers.accept = listOf(MediaType.APPLICATION_JSON)
+        val entity = HttpEntity(null, headers)
+
+        val response = template.exchange<List<Product>>("/products", HttpMethod.GET, entity)
+
+        Assertions.assertTrue(response.statusCode.is2xxSuccessful)
+        Assertions.assertEquals(1, response.body?.size)
+        Assertions.assertEquals("iPhone 13", response.body?.get(0)?.name)
+        Assertions.assertEquals(product.category?.name, response.body?.get(0)?.category?.name)
+
+    }
 }
