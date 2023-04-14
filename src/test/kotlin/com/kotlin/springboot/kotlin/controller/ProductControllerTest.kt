@@ -4,7 +4,9 @@ import com.kotlin.springboot.kotlin.entity.Category
 import com.kotlin.springboot.kotlin.entity.Product
 import com.kotlin.springboot.kotlin.repository.CategoryRepository
 import com.kotlin.springboot.kotlin.repository.ProductRepository
-import org.junit.jupiter.api.*
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
@@ -15,7 +17,6 @@ import org.springframework.http.HttpMethod
 import org.springframework.http.MediaType
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestMethodOrder(MethodOrderer.OrderAnnotation::class)
 class ProductControllerTest {
 
     @Autowired
@@ -34,7 +35,6 @@ class ProductControllerTest {
     }
 
     @Test
-    @Order(1)
     fun shouldAddProducts() {
         var category = Category(name = "ELETRONIC")
         category = categoryRepository.save(category)
@@ -51,7 +51,6 @@ class ProductControllerTest {
     }
 
     @Test
-    @Order(2)
     fun shouldUpdateProduct() {
         var category = Category(name = "ELETRONIC")
         category = categoryRepository.save(category)
@@ -71,7 +70,6 @@ class ProductControllerTest {
     }
 
     @Test
-    @Order(3)
     fun shouldListAllProducts() {
         var category = Category(name = "ELETRONIC")
         category = categoryRepository.save(category)
@@ -92,7 +90,6 @@ class ProductControllerTest {
     }
 
     @Test
-    @Order(4)
     fun shouldDeleteAProduct() {
 
         var category = Category(name = "ELETRONIC")
