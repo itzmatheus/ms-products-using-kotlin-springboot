@@ -84,4 +84,19 @@ class ProductControllerTest {
         Assertions.assertEquals(product.category?.name, response.body?.get(0)?.category?.name)
 
     }
+
+    @Test
+    @Order(4)
+    fun shouldDeleteAProduct() {
+
+        var category = Category(name = "ELETRONIC")
+        category = categoryRepository.save(category)
+        var product = Product(name = "iPhone 14", price = 2500, category = category)
+        product = productRepository.save(product)
+
+        Assertions.assertEquals(1, productRepository.count())
+        template.delete("/products/{id}", product.id)
+        Assertions.assertEquals(0, productRepository.count())
+
+    }
 }
