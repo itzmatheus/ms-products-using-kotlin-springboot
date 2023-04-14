@@ -21,3 +21,6 @@ url:
 logging:
   file:
     name: example.log
+
+swagger:
+  server-url: /
