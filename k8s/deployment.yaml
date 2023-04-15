@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-product
+spec:
+  selector:
+    matchLabels:
+      app: ms-product
+  template:
+    metadata:
+      labels:
+        app: ms-product
+    spec:
+      containers:
+        - name: ms-product
+          image: gcr.io/YOU_GOOGLE_PROJECT_ID/ms-product
+          ports:
+            - containerPort: 8080

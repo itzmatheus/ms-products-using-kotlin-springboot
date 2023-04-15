@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-product
+spec:
+  type: "LoadBalancer"
+  loadBalancerIP: ""
+  selector:
+    app: ms-product
+  ports:
+    - port: 8080
+      targetPort: 8080

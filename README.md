@@ -10,3 +10,5 @@ The purpose of this project is just studying all techs involving.
 - [Google Cloud](https://cloud.google.com/?hl=pt-br)
 - [Kubernetes](https://kubernetes.io/pt-br/)
 - [ChatGPT](https://openai.com/blog/chatgpt)
+- [Jib](https://cloud.google.com/java/getting-started/jib?hl=pt-br)
+- [Skaffold](https://skaffold.dev/docs/install/)

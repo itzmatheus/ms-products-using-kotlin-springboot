@@ -1,0 +1,8 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: gcr.io/YOU_GOOGLE_PROJECT_ID/ms-product
+      jib: {}
+  tagPolicy:
+    gitCommit: {}
