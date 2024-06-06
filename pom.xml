@@ -79,19 +79,6 @@
 		<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
 		<plugins>
 			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.3.1</version>
-				<configuration>
-					<from>
-						<image>eclipse-temurin:17-jre-focal</image>
-					</from>
-					<to>
-						<image>gcr.io/YOU_GOOGLE_CLOUD_PROJECT_ID/ms-product</image>
-					</to>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
