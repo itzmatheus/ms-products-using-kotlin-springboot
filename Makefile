@@ -11,5 +11,5 @@ run: install
 build-image-and-send-to-google-cloud-registry:
 	./mvnw compile jib:build
 
-push-k8s-with-skaffold:
-	skaffold dev --port-forward
+# push-k8s-with-skaffold:
+# 	skaffold dev --port-forward
