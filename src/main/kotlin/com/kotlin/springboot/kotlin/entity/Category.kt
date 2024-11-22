@@ -13,6 +13,6 @@ data class Category(
     val id: String = UUID.randomUUID().toString(),
 
     @Column(nullable = false)
-    var name: String = "",
+    var name: String? = "",
 
 )

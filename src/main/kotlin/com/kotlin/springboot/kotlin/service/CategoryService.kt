@@ -14,6 +14,9 @@ class CategoryService(
     fun findAll(): List<Category> = categoryRepository.findAll()
 
     fun saveOrUpdate(category: Category): Category {
+        if (category.name.isNullOrEmpty()) {
+            throw RuntimeException("Invalid category name: ${category.name}")
+        }
         return categoryRepository.save(category)
     }
 
